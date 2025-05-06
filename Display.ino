@@ -12,7 +12,6 @@ void setupTextDisplay()
 {
   matrix.begin();
   showText("ROV");
-  Serial.println("setupTextDisplay()"); 
 }
 
 /*
