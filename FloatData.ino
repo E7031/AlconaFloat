@@ -13,34 +13,21 @@ The circuit:
  ** CLK - pin 13
  ** CS - pin 4 (for MKRZero SD: SDCARD_SS_PIN)
 
-  created   Nov 2010
-  by David A. Mellis
-  modified 9 Apr 2012
-  by Tom Igoe
-
-  This example code is in the public domain.
-
 */
 
 void setupSDReader() {
- Serial.print("Initializing SD card...");
-
   if (!SD.begin(4)) {
-    Serial.println("initialization failed!");
     while (1);
   }
-  Serial.println("initialization done.");
-
+ 
   // create the file. note that only one file can be open at a time,
   // so you have to close this one before opening another.
   myFile = SD.open("float.txt", FILE_WRITE);
   // if the file opened okay, write to it:
   if (myFile) {
-    Serial.print("float data collected on ...");
     myFile.println("float data collected on");
     // close the file:
     myFile.close();
-    Serial.println("done.");
   } else {
     // if the file didn't open, print an error:
     Serial.println("error opening float.txt");
@@ -51,11 +38,9 @@ void writeToFile(String r){
    myFile = SD.open("float.txt", FILE_WRITE);
       // if the file opened okay, write to it:
       if (myFile) {
-        Serial.println("Record: " + r);
         myFile.println(r);
         // close the file:
         myFile.close();
-        Serial.println("file closed");
       } else {
         // if the file didn't open, print an error:
         Serial.println("error writing to file");
@@ -64,7 +49,6 @@ void writeToFile(String r){
 
 String readFromFile(){
   String t = "file empty";
-  
   // re-open the file for reading:
   myFile = SD.open("float.txt");
   if (myFile) {
