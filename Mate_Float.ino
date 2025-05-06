@@ -88,12 +88,7 @@ void loop() {
   {
     RTCTime currenttime;
     RTC.getTime(currenttime);
-    Serial.print("Time: ");
-    Serial.print(currenttime.getHour());
-    Serial.print(":");
-    Serial.print(currenttime.getMinutes());
-    Serial.print(":");
-    Serial.println(currenttime.getSeconds());
+    String recordTime = currenttime.getHour() + ":" + currenttime.getMinutes() + ":" + currenttime.getSeconds();
 
     //Read data from sensor
     sensor.read();
@@ -106,24 +101,20 @@ void loop() {
    
     if (depth <= 2.5 && (recordCount < 100 ))
     {   
-      Serial.println("Do I get Here? depth <= 2.5"); 
       retractActuatorFullSpeed();
     }
     else if ((depth > 2.5) && (depth <= 3) && (recordCount < 100 ))
     {
-      Serial.println("Do I get Here?  depth > 2.5 && depth <= 3"); 
       byte speed = 127; //half speed 
       retractActuator(speed);
     }
     else if ((depth > 3) && (recordCount < 100 ))
     {
-      Serial.println("Do I get Here?  depth > 3"); 
       byte speed = 127; //half speed 
       extendActuator(speed);
     }
     else // send to the surface
     {
-      Serial.println("Do I get Here?  send to the surface"); 
       extendActuatorFullSpeed();
     }
   }
@@ -149,8 +140,7 @@ void loop() {
   Serial Monitor when Led value is toggled on the Dashboard. 
 */
 void onLedChange()  {
-  Serial.print("Led status changed:");
-  Serial.println(led);
+ 
 }
 
 /*
@@ -159,7 +149,6 @@ void onLedChange()  {
 */
 void onDeployFloatChange()  {
   //Change the display on the Adrunio Uno R4 wifi board to indicate deploy 
-  
   if(deployFloat)
     {
       showScrollingText("    Float Deployed!    ");
@@ -178,9 +167,7 @@ void onDeployFloatChange()  {
 void onReadFloatDataChange()  {
   if(readFloatData)
   {
-    displayText = readFromFile ();
-    Serial.print("Fetch data from file:");
-    Serial.println(displayText);   
+    displayText = readFromFile();
   }  
   else
   {
