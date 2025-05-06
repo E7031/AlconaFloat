@@ -6,7 +6,6 @@ void setupMotor()
 {
   pinMode(10, OUTPUT); // Configure pin 10 as an Output
   pinMode(9, OUTPUT); // Configure pin 9 as an Output
-  Serial.println("setupMotor()"); 
 }
 
 void extendActuatorFullSpeed ()// Extend Actuator at Full Speed
@@ -15,7 +14,6 @@ void extendActuatorFullSpeed ()// Extend Actuator at Full Speed
   byte speed = 255; 
   analogWrite(RPWM, 0);
   analogWrite(LPWM, speed);
-  Serial.println("extendActuatorFullSpeed ()"); 
 }
 
 void extendActuator (byte speed)// Extend actuator based on passed in speed
@@ -23,7 +21,6 @@ void extendActuator (byte speed)// Extend actuator based on passed in speed
   //Variable for the speed of the motor (0-255);
   analogWrite(RPWM, 0);
   analogWrite(LPWM, speed);
-  Serial.println("extendActuator (byte speed)"); 
 }
  void retractActuatorFullSpeed() //Retract actuator at full speed
 {
@@ -31,20 +28,17 @@ void extendActuator (byte speed)// Extend actuator based on passed in speed
   byte speed = 255;
   analogWrite(RPWM, speed);
   analogWrite(LPWM, 0);
-  Serial.println("retractActuatorFullSpeed()"); 
 }
  void retractActuator(byte speed) // Extend actuator based on passed in speed
 {
   //Variable for the speed of the motor (0-255);
   analogWrite(RPWM, speed);
   analogWrite(LPWM, 0);
-  Serial.println("retractActuator(byte speed) "); 
 }
 void stopActuator ()  // Stop Actuator
 {
   analogWrite(RPWM, 0);
   analogWrite(LPWM, 0);
-  Serial.println("stopActuator ()  "); 
 }
 
 
