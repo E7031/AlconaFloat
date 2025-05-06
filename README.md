@@ -46,3 +46,8 @@ The way I circumvented this issue was by having an SD card wired to the Arduino,
 
 Inside the tube, the Arduino is placed at the top to ensure that it does not lose connection as we are deploying it. The rest of the electrical components are stored at the bottom of the tube so that the weights of the batteries, motor driver, and converters do not affect the weight distribution. 
 
+<img width="171" alt="Picture1" src="https://github.com/user-attachments/assets/249391a7-b149-40d1-9361-1da23034c3d8" />
+
+Finished float with all electrical components inside.
+
+<img width="457" alt="pic2" src="https://github.com/user-attachments/assets/5c7aa77b-2573-4e59-9484-39d1dd00a503" />
